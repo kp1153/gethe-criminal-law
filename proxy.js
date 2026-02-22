@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export function middleware(request) {
+export function proxy(request) {
   const auth = request.cookies.get("auth")?.value;
   if (auth !== process.env.SHOP_PASSWORD) {
     return NextResponse.redirect(new URL("/login", request.url));
